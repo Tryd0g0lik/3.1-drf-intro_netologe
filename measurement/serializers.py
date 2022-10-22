@@ -3,9 +3,10 @@ from rest_framework import ListAPIView
 # TODO: опишите необходимые сериализаторы
 from .models import *
 
-class MeasurementSerializers(serializers.ModelSerializer):
+class SensorSerializers(serializers.ModelSerializer):
 
 	class Meta:
-		model = Measurement
-		field = ('id_sensor', 'graduses', 'date')
+		model = Sensor
+		fields = ('id', 'name', 'description')
+
 

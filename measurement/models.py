@@ -3,7 +3,7 @@ from datetime import datetime
 
 # TODO: опишите модели датчика (Sensor) и измерения (Measurement)
 class Sensor(models.Model):
-	name = models.CharField(max_length=50, null=True, unique=True)
+	name = models.CharField(max_length=50, null=True)
 	description = models.TextField(max_length=1000)
 
 
