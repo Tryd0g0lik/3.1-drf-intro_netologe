@@ -13,7 +13,7 @@ class Sensor(models.Model):
 	                               help_text='Ваше примичание к прибору.')
 
 	def __str__(self):
-		return self.name
+		return '%s (%s)' % (self.name, self.description)
 
 	class Meta:
 		verbose_name='Сенсор'
@@ -42,7 +42,7 @@ class Measurement(models.Model):
 		)
 
 	def __str__(self):
-		dates = str(self.graduses) + ' ' + 'записано в таблицу' + ' ' + str(self.date)
+		dates = '%s записано в таблицу %s' % (self.graduses, self.date,)
 		return dates
 
 	class Meta:
