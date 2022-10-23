@@ -11,9 +11,10 @@ from .serializers import SensorSerializers, MeasurementSerializer
 @api_view(['GET',])
 def api_gradus(request):
 	sensor = Sensor.objects.all()
-	measurement = Measurement.objects.all()
+	# measurement = Measurement.objects.all()
 	sen = SensorSerializers(sensor, many=True)
-	mean = MeasurementSerializer(measurement, many=True)
+	# mean = MeasurementSerializer(measurement, many=True)
 
-	ser = sen.data + mean.data
+
+	ser = sen.data # + mean.data
 	return Response(ser )
