@@ -1,7 +1,7 @@
 .idea
 
 client/
-**/__pycache__
-**/#archive
+** /__pycache__
+** /#archive
 
-**/.env
+** /.env

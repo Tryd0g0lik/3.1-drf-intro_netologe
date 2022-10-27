@@ -4,17 +4,25 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.decorators import APIView
+from rest_framework.response import Response
+from rest_framework import generics
+from measurement.models import *
+from .serializers import *
 
-from measurement.models import Measurement, Sensor
-from .serializers import SensorSerializers, MeasurementSerializer
+# @api_view(['GET',])
+# def api_gradus(request):
+# 	sensor = Sensor.objects.all()
+# 	sen = SensorSerializers(sensor, many=True)
+# 	ser = sen.data # + mean.data
+# 	return Response(ser )
 
-@api_view(['GET',])
-def api_gradus(request):
-	sensor = Sensor.objects.all()
-	# measurement = Measurement.objects.all()
-	sen = SensorSerializers(sensor, many=True)
-	# mean = MeasurementSerializer(measurement, many=True)
+class api_gradus(generics.ListCreateAPIView):
+	queryset = Sensor.objects.all()
+	serializer_class=SensorMeasurementSerializers
 
 
-	ser = sen.data # + mean.data
-	return Response(ser )
+class api_gradus(APIView):
+	def get(self, request):
+		queryset = Sensor.objects.all()
+		serializer_class=SensorMeasurementSerializers(queryset, many=True)
+		return Response(serializer_class.data)

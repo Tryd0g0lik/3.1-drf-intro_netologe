@@ -9,13 +9,26 @@ class MeasurementSerializer(serializers.ModelSerializer):
 		model = Measurement
 		fields = ('graduses', 'date')
 
-class SensorSerializers(serializers.ModelSerializer):
+class SensorMeasurementSerializers(serializers.ModelSerializer):
 	measurement = MeasurementSerializer(read_only=True, many=True)
 
 	class Meta:
 		model = Sensor
-		fields = ('id', 'name', 'description', 'measurement')
+		fields = ('name', 'description', 'measurement')
 
 
 
 
+# class SensorSerializers(serializers.ModelSerializer):
+#
+# 	class Meta:
+# 		model = Sensor
+# 		fields = ('name', 'description', 'measurement')
+#
+#
+# class MeasurementSensorSerializer(serializers.ModelSerializer):
+# 	sensores = SensorSerializers(many=True, read_only=True)
+# 	# sensores = serializers.StringRelatedField(many=True)
+# 	class Meta:
+# 		model = Measurement
+# 		fields = ('graduses', 'date', 'sensores')
