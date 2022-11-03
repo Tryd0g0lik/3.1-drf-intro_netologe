@@ -27,7 +27,7 @@ class Measurement(models.Model):
 
 	graduses = models.FloatField(verbose_name='Градус',
 	   default=00.0,
-	   help_text='Измеряемая температура в цельсиях.'
+	   help_text='Измеряемая температура в цельсиях.',
 	   )
 	date = models.DateTimeField(auto_now=True,
 		verbose_name='Дата и время',

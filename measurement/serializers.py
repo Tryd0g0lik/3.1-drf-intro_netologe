@@ -10,25 +10,16 @@ class MeasurementSerializer(serializers.ModelSerializer):
 		fields = ('graduses', 'date')
 
 class SensorMeasurementSerializers(serializers.ModelSerializer):
-	measurement = MeasurementSerializer(read_only=True, many=True)
+	measure_data = MeasurementSerializer(read_only=True, many=True)
 
 	class Meta:
 		model = Sensor
-		fields = ('name', 'description', 'measurement')
+		fields = ('name', 'description', 'measure_data')
 
+	# def create(self, **validated_data):
+	# 	measures_data = validated_data.pop('measure_data')
+	# 	sensor = Sensor.objects.create(**validated_data)
+	# 	for measure_data in measures_data:
+	# 		Measurement.objects.create(sensor=sensor, **measures_data)
+	# 	return sensor
 
-
-
-# class SensorSerializers(serializers.ModelSerializer):
-#
-# 	class Meta:
-# 		model = Sensor
-# 		fields = ('name', 'description', 'measurement')
-#
-#
-# class MeasurementSensorSerializer(serializers.ModelSerializer):
-# 	sensores = SensorSerializers(many=True, read_only=True)
-# 	# sensores = serializers.StringRelatedField(many=True)
-# 	class Meta:
-# 		model = Measurement
-# 		fields = ('graduses', 'date', 'sensores')
