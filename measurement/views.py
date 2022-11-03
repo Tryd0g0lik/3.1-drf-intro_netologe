@@ -13,7 +13,7 @@ class api_gradus(generics.ListCreateAPIView):
 	queryset = Sensor.objects.all()
 	serializer_class=SensorMeasurementSerializers
 
-class Api_gradusViewSet(generics.RetrieveUpdateDestroyAPIView):
+class Api_gradusViewSet(generics.RetrieveUpdateDestroyAPIView,):
 	queryset = Sensor.objects.all()
 	serializer_class = SensorMeasurementSerializers
 
