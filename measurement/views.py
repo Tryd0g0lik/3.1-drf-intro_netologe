@@ -24,4 +24,12 @@ class MeasurementAllrViewSet(generics.ListCreateAPIView):
 class MeasurementViewSet(generics.RetrieveUpdateDestroyAPIView):
 	queryset=Measurement.objects.all()
 	serializer_class = MeasurementSerializer
+	print(serializer_class.data)
+
+class MeasurementViewSet(generics.CreateAPIView,
+                         MeasurementViewSet):
+	queryset=Measurement.objects.all()
+	serializer_class = MeasurementSerializer
+
+
 

@@ -7,4 +7,5 @@ urlpatterns = [
 	path('sensor/<pk>/', Api_gradusViewSet.as_view()),
 	path('meas/', MeasurementAllrViewSet.as_view()),
 	path('meas/<pk>/', MeasurementViewSet.as_view()),
+	path('meas/', MeasurementViewSet.as_view()),
 ]
