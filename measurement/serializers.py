@@ -5,16 +5,20 @@ from .models import *
 
 
 class MeasurementSerializer(serializers.ModelSerializer):
+
 	class Meta:
 		model = Measurement
-		fields = ('__all__')
+		fields = ("id", "graduses", 'id_sensor')
+		# exclude = ['id_sensor']
 
 
 class SensorMeasurementSerializers(serializers.ModelSerializer):
+	name = serializers.CharField()
 	measure_data = MeasurementSerializer(many=True, read_only=True)
 
 	class Meta:
 		model = Sensor
-		fields = ('__all__')
+		fields = ("id", "name", "measure_data")
+
 
 
